@@ -1,0 +1,26 @@
+{
+  "name": "myVueShow",
+  "version": "1.0.0",
+  "author": "zyx",
+  "private": true,
+  "description": "vue框架，基于自写组件开发",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vue/cli-service": "^3.8.0",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
+}
