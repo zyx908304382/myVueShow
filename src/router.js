@@ -11,7 +11,25 @@ let router = new Router({
       meta: {
         title: '首页'
       },
-      component: () => import('./views/index.vue')
+      component: () => import('./views/index.vue'),
+      children: [
+        {
+          path: '/tableList',
+          name: 'tableList',
+          meta: {
+            title: '列表'
+          },
+          component: () => import('./views/table/tableList.vue')
+        },
+        {
+          path: '/formTimeList',
+          name: 'formTimeList',
+          meta: {
+            title: '表单时间线'
+          },
+          component: () => import('./views/form/formTimeList.vue')
+        }
+      ]
     },
     {
       path: '*',
