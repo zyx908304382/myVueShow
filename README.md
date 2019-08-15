@@ -1,6 +1,7 @@
 # myVueShow
 
 vue框架开发，原生实现
+地址：https://zyx908304382.github.io/myVueShow/
 
 ### 1.安装依赖库
 ```
