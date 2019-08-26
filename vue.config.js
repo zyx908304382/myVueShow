@@ -31,7 +31,7 @@ module.exports = {
 
   // 配置 webpack-dev-server 行为
   devServer: {
-    port: 8986, // 端口
+    port: 8888, // 端口
     host: '127.0.0.1', // 自己IP
     open: true // 自动打开浏览器
   }

@@ -139,8 +139,8 @@
         width: 0;
         height: 0;
         border-top: 5px solid transparent;
-        border-bottom:5px solid transparent;
-        border-right:10px solid #3C3F41;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid #3C3F41;
     }
     .childrenMenu {
         position: absolute;
