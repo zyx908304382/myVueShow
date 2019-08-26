@@ -1,32 +1,38 @@
 <template>
     <div class="content" id="mouseTailBody">
         <div class="head">
+            <div class="headMenuIcon" @click="changeMenu">
+                <v-icon name="menu"></v-icon>
+            </div>
             <span>vue demo</span>
         </div>
 
-        <div class="menu">
-            <menuList :menuData="menuData"></menuList>
+        <div class="menu" id="menuId">
+            <menuList :menuData="menuData" :menuExpand="menuExpand"></menuList>
         </div>
 
-        <div class="mainContent">
+        <div class="mainContent" id="mainContentId">
             <router-view></router-view>
         </div>
     </div>
 </template>
 
 <script>
+    import $ from 'jquery'
     import menuList from "./components/menuList"
 
     export default {
         name: 'Index',
         data() {
             return {
+                /* 菜单展开 */
+                menuExpand: true,
+
                 /* 菜单列表 */
                 menuData: [
-                    {id: 1, name: '列表', url: '/tableList', childList: []},
-                    {id: 2, name: '表单时间线', url: '/formTimeList', childList: []},
-                    {id: 3, name: '父', url: '', childList: [{id: 1, name: '子1', url: '/tableList'}, {id: 2, name: '子2', url: '/formTimeList'}]},
-                    {id: 4, name: '父2', url: '', childList: [{id: 1, name: '子11', url: '/tableList'}, {id: 2, name: '子22', url: '/formTimeList'}]},
+                    {id: 1, name: '列表', icon: 'list', url: '/tableList', childList: []},
+                    {id: 2, name: '表单时间线', icon: 'clock', url: '/formTimeList', childList: []},
+                    {id: 3, name: '轮播图', icon: 'image', url: '', childList: [{id: 1, name: '轮播图1', url: '/movingImg1'}, {id: 2, name: '轮播图2', url: '/movingImg2'}]}
                 ],
 
                 /* 鼠标拖动特效参数 */
@@ -62,6 +68,18 @@
                 } else {
                     return dx.colorGBA()
                 }
+            },
+            // 菜单伸缩
+            changeMenu() {
+                let dx = this
+                if (dx.menuExpand) {
+                    $("#menuId").animate({width:"57px"})
+                    $("#mainContentId").animate({paddingLeft: '57px'})
+                } else {
+                    $("#menuId").animate({width:"200px"})
+                    $("#mainContentId").animate({paddingLeft: '200px'})
+                }
+                dx.menuExpand = !dx.menuExpand
             }
         },
         components: {
@@ -84,15 +102,32 @@
         width: 100%;
         height: 60px;
         z-index: 100;
+        overflow: hidden;
+        color: aliceblue;
     }
 
-    .head > span:nth-child(1) {
+    .headMenuIcon {
+        display: inline-block;
+        width: 30px;
+        height: auto;
+        margin-left: 14px;
+        vertical-align: sub;
+        cursor: pointer;
+        padding: 3px;
+        border: 1px solid #3C3F41;
+    }
+    .headMenuIcon:hover {
+        border-color: #a8b6bf;
+        box-shadow: 0 0 3px #a8b6bf;
+    }
+
+    .head > span:nth-child(2) {
         display: inline-block;
         height: 100%;
         line-height: 60px;
-        margin-left: 25px;
+        margin-left: 15px;
         font-size: 30px;
-        color: #FFFFFF;
+        white-space: nowrap;
     }
 
     .menu {

@@ -28,6 +28,22 @@ let router = new Router({
             title: '表单时间线'
           },
           component: () => import('./views/form/formTimeList.vue')
+        },
+        {
+          path: '/movingImg1',
+          name: 'movingImg1',
+          meta: {
+            title: '轮播图1'
+          },
+          component: () => import('./views/movingImg/movingImg1.vue')
+        },
+        {
+          path: '/movingImg2',
+          name: 'movingImg2',
+          meta: {
+            title: '轮播图2'
+          },
+          component: () => import('./views/movingImg/movingImg2.vue')
         }
       ]
     },
